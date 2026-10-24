@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── IBM Design Language Color Tokens ─────────────────────────────────── */
+:root {
+  --ibm-blue-10: #edf5ff;
+  --ibm-blue-20: #d0e2ff;
+  --ibm-blue-30: #a6c8ff;
+  --ibm-blue-40: #78a9ff;
+  --ibm-blue-50: #4589ff;
+  --ibm-blue-60: #0f62fe;
+  --ibm-blue-70: #0043ce;
+  --ibm-blue-80: #002d9c;
+
+  --ibm-gray-10: #f4f4f4;
+  --ibm-gray-20: #e0e0e0;
+  --ibm-gray-30: #c6c6c6;
+  --ibm-gray-40: #a8a8a8;
+  --ibm-gray-50: #8d8d8d;
+  --ibm-gray-60: #6f6f6f;
+  --ibm-gray-70: #525252;
+  --ibm-gray-80: #393939;
+  --ibm-gray-90: #262626;
+  --ibm-gray-100: #161616;
+
+  --ibm-red-40: #ff8389;
+  --ibm-red-50: #fa4d56;
+  --ibm-red-60: #da1e28;
+  --ibm-red-70: #a2191f;
+
+  --ibm-green-40: #42be65;
+  --ibm-green-50: #24a148;
+  --ibm-green-60: #198038;
+
+  --ibm-yellow-30: #f6f2c0;
+  --ibm-yellow-40: #fddc69;
+  --ibm-yellow-50: #f1c21b;
+
+  --ibm-purple-50: #8a3ffc;
+  --ibm-purple-60: #6929c4;
+
+  --ibm-teal-50: #009d9a;
+  --ibm-teal-60: #007d79;
+}
+
+@layer base {
+  body {
+    @apply bg-[#f4f4f4] text-[#161616] antialiased;
+    font-family: 'IBM Plex Sans', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Cards */
+  .card {
+    @apply bg-white rounded border border-[#e0e0e0] shadow-sm;
+  }
+
+  .card-inset {
+    @apply bg-[#f4f4f4] rounded border border-[#e0e0e0];
+  }
+
+  /* Buttons — IBM style: sharp corners, no border-radius */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-[#0f62fe] text-white
+           font-semibold text-sm transition-all hover:bg-[#0043ce] active:bg-[#002d9c]
+           disabled:bg-[#c6c6c6] disabled:text-[#8d8d8d] disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-[#0f62fe] focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-[#0f62fe]
+           text-[#0f62fe] font-semibold text-sm transition-all hover:bg-[#edf5ff]
+           disabled:border-[#c6c6c6] disabled:text-[#c6c6c6] disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-[#0f62fe] focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-transparent
+           text-[#0f62fe] font-semibold text-sm transition-all hover:bg-[#edf5ff]
+           disabled:text-[#c6c6c6] disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-[#da1e28] text-white
+           font-semibold text-sm transition-all hover:bg-[#a2191f] active:bg-[#750e13]
+           focus:outline-none focus:ring-2 focus:ring-[#da1e28] focus:ring-offset-2;
+  }
+
+  .btn-warning {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-[#f1c21b] text-[#161616]
+           font-semibold text-sm transition-all hover:bg-[#fddc69]
+           focus:outline-none focus:ring-2 focus:ring-[#f1c21b] focus:ring-offset-2;
+  }
+
+  /* Risk badges */
+  .risk-badge-low {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#defbe6] text-[#0e6027]
+           text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .risk-badge-medium {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#f6f2c0] text-[#8e4f00]
+           text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .risk-badge-high {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#fff1f1] text-[#a2191f]
+           text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .risk-badge-critical {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#da1e28] text-white
+           text-xs font-semibold uppercase tracking-wider;
+  }
+
+  /* Decision node colors */
+  .decision-node-allow {
+    @apply border-2 border-[#24a148] bg-[#defbe6] text-[#044317];
+  }
+
+  .decision-node-warn {
+    @apply border-2 border-[#f1c21b] bg-[#f6f2c0] text-[#8e4f00];
+  }
+
+  .decision-node-block {
+    @apply border-2 border-[#da1e28] bg-[#fff1f1] text-[#a2191f];
+  }
+
+  .decision-node-info {
+    @apply border-2 border-[#0f62fe] bg-[#edf5ff] text-[#002d9c];
+  }
+
+  /* IBM notification styles */
+  .notification-info {
+    @apply border-l-4 border-[#0f62fe] bg-[#edf5ff] text-[#161616];
+  }
+
+  .notification-success {
+    @apply border-l-4 border-[#24a148] bg-[#defbe6] text-[#161616];
+  }
+
+  .notification-warning {
+    @apply border-l-4 border-[#f1c21b] bg-[#f6f2c0] text-[#161616];
+  }
+
+  .notification-error {
+    @apply border-l-4 border-[#da1e28] bg-[#fff1f1] text-[#161616];
+  }
+
+  /* IBM tag */
+  .ibm-tag {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium;
+  }
+
+  .ibm-tag-blue {
+    @apply ibm-tag bg-[#d0e2ff] text-[#002d9c];
+  }
+
+  .ibm-tag-green {
+    @apply ibm-tag bg-[#defbe6] text-[#044317];
+  }
+
+  .ibm-tag-red {
+    @apply ibm-tag bg-[#fff1f1] text-[#a2191f];
+  }
+
+  .ibm-tag-yellow {
+    @apply ibm-tag bg-[#f6f2c0] text-[#8e4f00];
+  }
+
+  .ibm-tag-purple {
+    @apply ibm-tag bg-[#e8daff] text-[#491d8b];
+  }
+
+  .ibm-tag-gray {
+    @apply ibm-tag bg-[#e0e0e0] text-[#393939];
+  }
+
+  /* IBM progress bar */
+  .ibm-progress {
+    @apply w-full bg-[#e0e0e0] h-1.5;
+  }
+
+  .ibm-progress-fill {
+    @apply bg-[#0f62fe] h-1.5 transition-all duration-300;
+  }
+
+  /* Divider */
+  .ibm-divider {
+    @apply border-t border-[#e0e0e0];
+  }
+
+  /* Mirror bubble */
+  .mirror-bubble {
+    @apply border-l-4 border-[#0f62fe] bg-[#edf5ff] p-4 space-y-2;
+  }
+}
